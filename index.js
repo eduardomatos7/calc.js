@@ -12,8 +12,10 @@ document.querySelectorAll('.charKey').forEach(function(charKeyBtn){
     })
 })
 
+// função limpar o "display"
 document.getElementById('clear').addEventListener('click', function(){
     input.value = ''
+    input.focus() //  foca no elemento automaticamente
 })
 
 input.addEventListener('keydown', function(ev){
@@ -29,7 +31,51 @@ input.addEventListener('keydown', function(ev){
         calculate()
     }
 })
+document.getElementById('equal').addEventListener('click', calculate)
 
 function calculate(){
+    resultInput.value = 'ERROR'
+    resultInput.classList.add('error')
+    const resultado = eval(input.value)
+    resultInput.value = resultado
+    resultInput.classList.remove('error')
 
 }
+
+document.getElementById('copyToClipboard').addEventListener('click', function(ev){
+    const button = ev.currentTarget
+    if(button.innerText === 'Copy'){
+        button.innerText = 'Copied!'
+        button.classList.add('success')
+        navigator.clipboard.writeText(resultInput.value)
+        return
+    }
+    if (button.innerText !== 'Copy'){
+        button.innerText = 'Copy'
+        button.classList.remove('success')
+        return
+    }
+        
+    
+})
+
+document.getElementById('themeSwitcher').addEventListener('click', function(){
+    if (main.dataset.theme === "dark") {
+        root.style.setProperty("--bg-color", "#f1f5f9")
+        root.style.setProperty("--border-color", "#0066cc")
+        root.style.setProperty("--font-color", "#003366")
+        root.style.setProperty("--primary-color", "#0066ff")
+        root.style.setProperty("--equal-color", "#ff8c00")
+        main.dataset.theme = "light"
+        return
+      } 
+      if (main.dataset.theme === 'light'){
+        root.style.setProperty("--bg-color", "#000000")
+        root.style.setProperty("--border-color", "#66b2ff")
+        root.style.setProperty("--font-color", "#66b2ff")
+        root.style.setProperty("--primary-color", "#003bff")
+        root.style.setProperty("--equal-color", "darkorange")
+        main.dataset.theme = "dark"
+        return
+      }
+})
