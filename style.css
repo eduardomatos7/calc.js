@@ -3,12 +3,16 @@
     margin: 0;
     padding: 0;
   }
+
+  #container{
+    padding: 20px;
+  }
   
   :root {
     --bg-color: #000000;
     --border-color: #66b2ff;
     --font-color: #66b2ff;
-    --primary-color: #1d05d2;
+    --primary-color: #003bff;
     --error-color: #ff0043;
   }
  
@@ -45,7 +49,7 @@
   button {
     background-color: var(--primary-color);
     border: none;
-    border-radius: .25rem;
+    border-radius: 2.25rem;
     font-weight: 700;
     padding: .5rem 1rem;
     transition: .15s;
