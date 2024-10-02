@@ -14,6 +14,7 @@
     --font-color: #66b2ff;
     --primary-color: #003bff;
     --error-color: #ff0043;
+    --equal-color: darkorange;
   }
  
   
@@ -61,9 +62,9 @@
     border-radius: .5rem;
     color: var(--font-color);
     display: block;
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin: 0 auto;
-    padding: 1rem;
+    padding: 0.7rem;
     text-align: end;
     width: 100%;
   }
@@ -81,10 +82,15 @@
     font-size: 1rem;
     padding: 1rem;
   }
-  
-  #keys button:hover {
-    filter: brightness(0.7);
+
+  button#equal{
+    background-color: var(--equal-color);
   }
+  button.operation{
+    background-color: var(--border-color);
+  }
+  #keys button:hover {
+    filter: brightness(0.7);}
   
   #result {
     border-width: 2px 2px 2px 0;
