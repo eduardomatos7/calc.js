@@ -1,0 +1,16 @@
+export default function copyToClipboard(ev){
+    const button = ev.currentTarget
+    if(button.innerText === 'Copy'){
+        button.innerText = 'Copied!'
+        button.classList.add('success')
+        navigator.clipboard.writeText(document.getElementById('result').value)
+        return
+    }
+    if (button.innerText !== 'Copy'){
+        button.innerText = 'Copy'
+        button.classList.remove('success')
+        return
+    }
+        
+    
+}
